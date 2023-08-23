@@ -78,3 +78,60 @@ In this phase, the focus shifts to developing the business logic for the microse
 This project documentation has guided you through the two main phases of developing a serverless application on AWS. By following the steps outlined in Phase 1, you've created the foundational infrastructure including API Gateway, Lambda Functions, and a DynamoDB table. In Phase 2, you've developed the microservice business logic using AWS SDK JavaScript v3 and ES6 standards, enabling CRUD operations on the DynamoDB table.
 
 By completing both phases, you've successfully built a serverless application that leverages AWS services for scalable and cost-effective deployment.
+
+---
+
+# Product API Gateway Documentation
+
+This documentation provides an overview of the design for the Product API Gateway. The API is designed to handle product-related operations, including retrieving a list of products, adding new products, and managing individual product details.
+
+## API Design
+
+### Root Name: `product`
+
+The API is structured under the root name `product`.
+
+### Methods
+
+1. `GET /product`
+   - Endpoint for retrieving a list of products.
+   - Returns a list of products available in the system.
+
+2. `POST /product`
+   - Endpoint for adding a new product.
+   - Allows the addition of new products to the system.
+
+### Single Product with ID Parameter
+
+Individual product details can be accessed using the `{id}` parameter under the `product` root.
+
+### Methods for Single Product
+
+1. `GET /product/{id}`
+   - Endpoint for retrieving details of a specific product.
+   - Returns detailed information about a specific product identified by `{id}`.
+
+2. `PUT /product/{id}`
+   - Endpoint for updating details of a specific product.
+   - Allows updating the information of a product identified by `{id}`.
+
+3. `DELETE /product/{id}`
+   - Endpoint for deleting a specific product.
+   - Deletes the product identified by `{id}` from the system.
+
+## Usage
+
+This API design allows developers to interact with product-related data through a consistent and structured interface. Developers can use the provided endpoints to retrieve, add, update, and delete products within their applications.
+
+## Important Notes
+
+- Ensure that proper authentication and authorization mechanisms are in place to secure the API.
+- Always validate user input and handle errors gracefully to provide a robust user experience.
+
+## Contributing
+
+Contributions to this API design are welcome. If you find any issues or have suggestions for improvements, please feel free to submit a pull request.
+
+## License
+
+This API design is available under the [MIT License](LICENSE).
