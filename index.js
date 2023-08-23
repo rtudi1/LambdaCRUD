@@ -6,15 +6,15 @@ import {
   ScanCommand,
   UpdateItemCommand,
 } from "@aws-sdk/client-dynamodb";
-import { ddbClient } from "./ddbClient";
+import { ddbClient } from "./ddbClient.js";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
-import { uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 export const handler = async (event) => {
   console.log("request:", JSON.stringify(event, undefined, 2));
   let response;
-
+  let body;
   try {
     switch (event.httpMethod) {
       case "GET":
@@ -160,20 +160,21 @@ const updateProduct = async (event) => {
       ExpressionAttributeNames: objKeys.reduce(
         (acc, key, index) => ({
           ...acc,
-          [`#keys${index}`]: key,
+          [`#key${index}`]: key,
         }),
         {}
       ),
-      ExpressionAttributeNames: marshall(
+      ExpressionAttributeValues: marshall(
         objKeys.reduce(
           (acc, key, index) => ({
             ...acc,
-            [`value${index}`]: requestBody[key],
+            [`:value${index}`]: requestBody[key],
           }),
           {}
         )
       ),
     };
+    
 
     const updateResult = await ddbClient.send(new UpdateItemCommand(params));
     console.log(updateResult);
