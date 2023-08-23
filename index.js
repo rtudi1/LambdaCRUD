@@ -125,7 +125,7 @@ const createProduct = async (event) => {
 const deleteProduct = async (productId) => {
   console.log("deleteProduct");
   try {
-    console.log(`deleteProduct function. event ${event}`);
+    console.log(`deleteProduct function. event ${productId}`);
 
     const params = {
       TableName: process.env.DYNAMODB_TABLE_NAME,
@@ -175,7 +175,6 @@ const updateProduct = async (event) => {
       ),
     };
     
-
     const updateResult = await ddbClient.send(new UpdateItemCommand(params));
     console.log(updateResult);
 
