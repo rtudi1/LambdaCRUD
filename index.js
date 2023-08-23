@@ -125,11 +125,11 @@ const createProduct = async (event) => {
 const deleteProduct = async (productId) => {
   console.log("deleteProduct");
   try {
-    console.log(`deleteProduct function. event ${productId}`);
+    console.log(`deleteProduct function. productId ${productId}`);
 
     const params = {
       TableName: process.env.DYNAMODB_TABLE_NAME,
-      Item: marshall({ id: productId }),
+      Key: marshall({ id: productId }),
     };
 
     const deleteResult = await ddbClient.send(new DeleteItemCommand(params));
