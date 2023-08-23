@@ -1,0 +1,17 @@
+{
+  "name": "lambdacrud",
+  "version": "1.0.0",
+  "description": "1. [Introduction](#introduction)\r 2. [Phase 1: Infrastructure Creation on AWS](#phase-1-infrastructure-creation-on-aws)\r    2.1. [Objective](#21-objective)\r    2.2. [Steps](#22-steps)\r 3. [Phase 2: Develop Lambda Microservice CRUD Rest API Business Logic with AWS SDK](#phase-2-develop-lambda-microservice-crud-rest-api-business-logic-with-aws-sdk)\r    3.1. [Objective](#31-objective)\r    3.2. [Steps](#32-steps)\r 4. [Conclusion](#conclusion)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.395.0",
+    "@aws-sdk/util-dynamodb": "^3.395.0"
+  }
+}
